@@ -27,29 +27,30 @@ let gpuScore = 0;
 
 // Step 4: Logic to play a single round
 
-// Rules:
-// Rock > Scissors
-// Paper > Rock
-// Scissors > Paper
-// The player who picks the stronger of the two objects is the winner.
-// If both players throw the same object, it’s a tie. In this situation, simply play again. 
-// Continue doing this until there is a clear winner.
-// Many people choose to do “best of 3” or “best of 5” since rock paper scissors is such a quick and easy game to play.
-
 const bioSelection = getBioChoice(bioChoice);
 const gpuSelection = getGpuChoice(gpuChoice);
 
-function playRound(bioMove, gpuMove) {
-    if (bioMove === "Rock" && gpuMove === "Scissors") return "You win! Rock beats Scissors";
-    if (bioMove === "Paper" && gpuMove === "Rock") return "You win! Paper beats Rock";
-    if (bioMove === "Scissors" && gpuMove === "Paper") return "You win! Scissors beats Paper";
-    if (bioMove === "Rock" && gpuMove === "Paper") return "You lose! Paper beats Rock";
-    if (bioMove === "Paper" && gpuMove === "Scissors") return "You lose! Scissors beats Paper";
-    if (bioMove === "Scissors" && gpuMove === "Rock") return "You lose! Rock beats Scissors";
-    return "It's a tie! Play again!";
+function playRound(bioTurn, gpuTurn) {
+    if (bioTurn === gpuTurn) {
+        return "It's a tie! Play again!";
+    }
+    const bioWins = 
+        (bioTurn === "Rock" && gpuTurn === "Scissors") ||
+        (bioTurn === "Paper" && gpuTurn === "Rock") ||
+        (bioTurn === "Scissors" && gpuTurn === "Paper");
+    if (bioWins) {
+        bioScore++;
+        return `You win! ${bioTurn} beats ${gpuTurn}`;
+    } else {
+        gpuScore++;
+        return `You lose! ${gpuTurn} beats ${bioTurn}`;
+    }
 }
 
 console.log("Human: " + bioSelection);
 console.log("Computer: " + gpuSelection);
 
-console.log(playRound(bioSelection, gpuSelection));
+const roundResult = playRound(bioSelection, gpuSelection);
+console.log(roundResult);
+
+console.log(`Scores -> Human: ${bioScore}, Computer: ${gpuScore}`);
