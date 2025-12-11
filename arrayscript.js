@@ -69,6 +69,7 @@ const addOfTripledEvens = tripleNums.reduce((total, currentItem) => {
 }, 0);
 
 // Cleaner version (rename original function) -- as provided by The Odin Project
+
 function sumOfTripledEvens2(array) {
     return array
         .filter((num) => num % 2 === 0)
@@ -88,6 +89,7 @@ console.log("Simpler way: " + sumOfTripledEvens2(array));
 // camelize("background-color") == 'backgroundColor';
 // camelize("list-style-image") == 'listStyleImage';
 // camelize("-webkit-transition") == 'WebkitTransition';
+
 function camelize(str) {
     return str
         .split('-')
@@ -96,3 +98,71 @@ function camelize(str) {
 }
 
 console.log(camelize("list-style-image"));
+
+// Filter Range exercise
+// Write a function filterRange(arr, a, b) that gets an array arr, looks for elements with values 
+// higher or equal to "a" and lower or equal to "b" and return a result as an array.
+// The function should not modify the array. It should return the new array.
+
+let arrNum = [5, 3, 8, 1];
+
+function filterRange(arrNum, a, b) {
+   return arrNum.filter((num) => num >= a && num <= b);    
+}
+
+console.log(filterRange(arrNum, 1, 4));
+
+// Filter range "in place"
+// Write a function filterRangeInPlace(arr, a, b) that gets an array arr and removes 
+// from it all values except those that are between a and b. The test is: a ≤ arr[i] ≤ b.
+// The function should only modify the array. It should not return anything.
+
+function filterRangeInPlace(arrNum, a, b) {
+    const filtered = arrNum.filter(num => num >= a && num <=b);
+    arrNum.length = 0;
+    arrNum.push(filtered);
+}
+
+filterRangeInPlace(arrNum, 1, 4);
+console.log(arrNum);
+
+// Sort in decreasing order -- Sort then reverse
+
+let arrSort = [5, 2, 1, -10, 8];
+arrSort.sort((a, b) => a - b); // OR just 1 line (no need for reverse) --> arrSort.sort((a, b) => b - a);
+arrSort.reverse();
+
+console.log(arrSort);
+
+// Copy and sort array
+// We have an array of strings arr. We’d like to have a sorted copy of it, but keep arr unmodified.
+// Create a function copySorted(arr) that returns such a copy.
+
+let arrStr = ["HTML", "JavaScript", "CSS"];
+
+function copySorted(arrStr) {
+    return arrStr.slice().sort();
+}
+
+let sortedCopy = copySorted(arrStr);
+
+console.log("Sorted Copy of Array: " + sortedCopy);
+console.log("Original Array: " + arrStr);
+
+// Shuffle an Array
+// Write the function shuffle(array) that shuffles (randomly reorders) elements of the array.
+// Multiple runs of shuffle may lead to different orders of elements.
+// All element orders should have an equal probability. 
+// For instance, [1,2,3] can be reordered as [1,2,3] or [1,3,2] or [3,1,2] etc, with equal probability of each case.
+
+let arrShfl = [1, 2, 3];
+
+function shuffleArr(arrShfl) {
+    for (let i = arrShfl.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arrShfl[i], arrShfl[j]] = [arrShfl[j], arrShfl[i]];
+    }
+    return arrShfl;
+}
+
+console.log("Shuffled Array: " + shuffleArr(arrShfl));
