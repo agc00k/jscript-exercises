@@ -12,4 +12,4 @@ Mimic of Fizz Buzz example that loops up to number given and looks for numbers d
 
 # Project: Rock-Paper-Scissors Game - rps.html & rpsscript.js
 
-WIP
+Created a Rock, Paper, Scissors game through the console - Each game consists of 5 rounds of Rock, Paper, Scissors
