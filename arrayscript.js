@@ -59,7 +59,7 @@ const productOfAllNums = arr.reduce((total, currentItem) => {
 
 console.log(productOfAllNums); // outputs 120; -- original array unchanged
 
-// Rewrite SumOfTripledEvens(array) function using map, filter, and reduce
+// My version of SumOfTripledEvens(array) function using map, filter, and reduce
 // filter > map > reduce
 
 const evenNums = array.filter(num => num % 2 === 0);
@@ -80,3 +80,19 @@ console.log(evenNums);
 console.log(tripleNums);
 console.log(addOfTripledEvens);
 console.log("Simpler way: " + sumOfTripledEvens2(array));
+
+// Translate border-left-width to borderLeftWidth (camelcase)
+// Write the function camelize(str) that changes dash-separated words like “my-short-string” into camel-cased “myShortString”. 
+// That is: removes all dashes, each word after dash becomes uppercased.
+// Examples: 
+// camelize("background-color") == 'backgroundColor';
+// camelize("list-style-image") == 'listStyleImage';
+// camelize("-webkit-transition") == 'WebkitTransition';
+function camelize(str) {
+    return str
+        .split('-')
+        .map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
+        .join('');
+}
+
+console.log(camelize("list-style-image"));
