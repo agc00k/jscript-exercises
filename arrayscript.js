@@ -154,10 +154,11 @@ console.log("Original Array: " + arrStr);
 // Multiple runs of shuffle may lead to different orders of elements.
 // All element orders should have an equal probability. 
 // For instance, [1,2,3] can be reordered as [1,2,3] or [1,3,2] or [3,1,2] etc, with equal probability of each case.
+// had zero idea on how to do this... needed to see solution
 
 let arrShfl = [1, 2, 3];
 
-function shuffleArr(arrShfl) {
+function shuffleArr(arrShfl) { 
     for (let i = arrShfl.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         [arrShfl[i], arrShfl[j]] = [arrShfl[j], arrShfl[i]];
@@ -166,3 +167,17 @@ function shuffleArr(arrShfl) {
 }
 
 console.log("Shuffled Array: " + shuffleArr(arrShfl));
+
+// Filter unique array memebers
+// Let arr be an array.
+// Create a function unique(arr) that should return an array with unique items of arr.
+// For instance:
+// function unique(arr) {
+  /* your code */
+// }
+//let strings = ["Hare", "Krishna", "Hare", "Krishna",
+//  "Krishna", "Krishna", "Hare", "Hare", ":-O"
+//];
+//alert( unique(strings) ); // Hare, Krishna, :-O
+
+let arrStrValues = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"];
